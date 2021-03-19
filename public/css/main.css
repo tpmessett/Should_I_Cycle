@@ -1,0 +1,74 @@
+
+
+.header-content {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#map {
+  width: 100%;
+  height: 300px;
+}
+
+.content {
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.top-banner {
+  display: flex;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../img/header.jpg");
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  color: #ffffff;
+  padding: 120px 0;
+  height: 500px;
+  margin-bottom: 15px;
+}
+
+body{
+  margin 0
+  padding 0
+}
+
+.card {
+  margin: 15px 0;
+}
+
+@media screen and (max-width: 992px) {
+
+.header-content {
+  width: 750px;
+}
+
+.content {
+  width: 750px;
+}
+
+.textbox {
+  margin-bottom: 10px
+}
+
+}
+
+@media screen and (max-width: 762px) {
+
+.header-content {
+  width: 95%;
+}
+
+.content {
+  width: 95%;
+}
+
+.textbox {
+  margin-bottom: 10px
+}
+
+}
