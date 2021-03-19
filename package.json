@@ -4,7 +4,8 @@
   "description": "Deciding if I should cycle...",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/tpmessett/should_I_Cycle/issues"
   },
-  "homepage": "https://github.com/tpmessett/should_I_Cycle#readme"
+  "homepage": "https://github.com/tpmessett/should_I_Cycle#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
