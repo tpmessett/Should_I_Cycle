@@ -1,0 +1,19 @@
+{
+  "name": "should_i_cycle",
+  "version": "1.0.0",
+  "description": "Deciding if I should cycle...",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tpmessett/should_I_Cycle.git"
+  },
+  "author": "Tom Messett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tpmessett/should_I_Cycle/issues"
+  },
+  "homepage": "https://github.com/tpmessett/should_I_Cycle#readme"
+}
