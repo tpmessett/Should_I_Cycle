@@ -6,21 +6,27 @@ const form = document.getElementById('form')
 const serviceDelays = []
 
 // Looks up directions using Google JS API
-const googleDirections = () => {
+const cycleDirections = () => {
   const from = document.getElementById('from');
   const to = document.getElementById('to');
   // For cycling
-  fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${from.value}&destination=${to.value}&mode=bicycling&key=${GOOGLE_API_KEY}`)
+  fetch(`/cycling-directions/${from.value}/${to.value}`)
     .then(response => response.json())
     .then((data) => {
       const bike = data
       const bikeTime = bike.routes[0].legs[0].duration
       const bikeDistance = bike.routes[0].legs[0].distance
+      console.log(bikeDistance)
     });
-  // on public transport
-  fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${from.value}&destination=${to.value}&mode=transit&key=${GOOGLE_API_KEY}`)
+};
+
+const transitDirections = () => {
+  const from = document.getElementById('from');
+  const to = document.getElementById('to');
+  fetch(`/transit-directions/${from.value}/${to.value}`)
     .then(response => response.json())
     .then((data) => {
+      console.log(data)
       const transit = data
       const transitTime = transit.routes[0].legs[0].duration
       const route = transit.routes[0].legs[0].steps
@@ -32,18 +38,8 @@ const googleDirections = () => {
       };
       delays(lines)
     });
-};
 
-// Looks up stations on the route
-// const stationLookup = (stations) => {
-//   for (element of stations) {
-//   fetch(`https://api.tfl.gov.uk/Stoppoint/Search/${element}`)
-//     .then(response => response.json())
-//     .then((data) => {
-//       console.log(data)
-//     });
-//   }
-// };
+  }
 
 // Looks up delays on the route using TFL API
 const delays = (lines) => {
@@ -65,18 +61,18 @@ const delays = (lines) => {
 };
 
 // Grabs Air quality info from TFL api.
-const airQuality = () => {
-  fetch('https://api.tfl.gov.uk/AirQuality/')
-    .then(response => response.json())
-    .then((data) => {
-      const p = data.currentForecast[0].forecastBand;
-    });
+const airQuality = async () => {
+  const api_url = '/airquality';
+  const response = await fetch(api_url);
+  const json = await response.json();
+  console.log(json);
 };
 
 // Gets weather data from open weather api
-const weatherData = () => {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=${WEATHER_API_KEY}`)
-    .then(response => response.json())
+const weatherData = async () => {
+  const api_url = '/weather'
+  const response = await fetch(api_url);
+  const json = await response.json()
     .then((data) => {
       // temperature
       if (data.main.feels_like < 2) {
@@ -108,11 +104,8 @@ const weatherData = () => {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  googleDirections()
-  airQuality()
-  weatherData()
+  cycleDirections()
+  transitDirections()
+  airQuality();
+  weatherData();
 });
-
-
-
-
