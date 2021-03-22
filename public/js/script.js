@@ -1,10 +1,10 @@
 
 const form = document.getElementById('form')
-// stores list of stations visited
-// const stations = []
 // stores descriptions of delays taken from TFL API in Delays function
 const serviceDelays = []
+// stores results of time estimate for each route (transit vs cycling)
 const timeResults = []
+// stores array of points scored calculated by results of each function
 const travelScore = []
 
 
@@ -19,6 +19,8 @@ const cycleDirections = () => {
       const bikeTime = bike.routes[0].legs[0].duration
       const bikeDistance = bike.routes[0].legs[0].distance
       timeResults.push(bikeTime.value)
+      // calls next function - transit
+      transitDirections()
     });
 };
 
@@ -40,7 +42,10 @@ const transitDirections = () => {
           lines.push(element.transit_details.line.short_name)
         }
       };
+      // calls delays function to check if reported delays on any routes being used
       delays(lines)
+      // calls next function - air quality
+      airQuality()
     });
 
   }
@@ -73,8 +78,10 @@ const airQuality = async () => {
   } else if (current == "Moderate") {
     travelScore.push(0)
   } else {
-    travelScore.push(-2)
+    travelScore.push(-1)
   }
+  // calls weather data for day
+  weatherData()
 };
 
 // Gets weather data from open weather api
@@ -90,7 +97,7 @@ const weatherData = async () => {
       } else if (data.main.feels_like > 30) {
         travelScore.push(-1)
       } else {
-        travelScore.push(1)
+        travelScore.push(0)
       }
       // wind
       wind = data.wind.speed
@@ -103,7 +110,7 @@ const weatherData = async () => {
       } else if (wind > 24.4) {
         travelScore.push(-10)
       } else {
-        travelScore.push(1)
+        travelScore.push(0)
       }
       // rain
       rainChance = data.weather[0].main
@@ -116,7 +123,7 @@ const weatherData = async () => {
       } else if (rainChance == "Thunderstorm"){
         travelScore.push(-5)
       } else {
-        travelScore.push(1)
+        travelScore.push(0)
       }
       // visibility
       visibility = data.visibility
@@ -127,9 +134,11 @@ const weatherData = async () => {
       } else if (visibility > 999 && visibility < 3704) {
         travelScore.push(-1)
       } else {
-        travelScore.push(1)
+        travelScore.push(0)
       }
     });
+  // calls next function
+  fastest()
 }
 
 // work out if cycling or transit is fater
@@ -140,29 +149,29 @@ const fastest = () => {
   } else {
     travelScore.push(-1)
   }
+  // calls function to work out score of all functions
+  console.log(speed)
+  travelSum()
 }
 
 // sum results from travelscore array
 const travelSum = () => {
   let count = 0;
-  console.log(travelScore.length)
   console.log(travelScore)
   for(let i = 0; i < travelScore.length; i++)
   {
     count = count + travelScore[i];
-    console.log(travelScore[i])
-    console.log(i)
   }
-  console.log(count)
+  if (count < 0) {
+    document.getElementById("top-banner").style.backgroundImage = "linear-gradient( rgba(192, 36, 0, 0.9), rgba(192, 36, 0, 0.9) ), url('../img/header.jpg')"
+  } else {
+    document.getElementById("top-banner").style.backgroundImage= "linear-gradient( rgba(36, 197, 81, 0.9), rgba(36, 197, 81, 0.9) ), url('../img/header.jpg')"
+  }
+  document.getElementById("content").style.display = "flex";
 }
 
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   cycleDirections()
-  transitDirections()
-  airQuality()
-  weatherData()
-  fastest()
-  travelSum()
 });

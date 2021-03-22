@@ -6,77 +6,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Should I cycle or get the tube?</title>
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-  <div class="top-banner">
+  <div id="top-banner">
     <div class="header-content">
       <form id="form" class="form row-cols-lg-auto g-3 align-items-center justify-content-center">
-        <div class="col-xs-12 col-m-6 col-lg-auto">
-          <label>What's your plan?</label>
-        </div>
         <div class="col-xs-12 col-m-6 col-lg-auto textbox">
-          <input id="from" type="text" class="form-control" placeholder="from" required>
+          <input id="from" type="text" class="form-control" placeholder="Going from?" required>
         </div>
+        <div class="line"></div>
         <div class="col-xs-12 col-m-6 col-lg-auto textbox">
-          <input id="to" type="text" class="form-control" placeholder="to" required>
+          <input id="to" type="text" class="form-control" placeholder="Going to?" required>
         </div>
+       <!--  <a href="#" class="cta">
+          <span>Click me</span>
+          <svg width="13px" height="10px" viewBox="0 0 13 10">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+          </svg>
+        </a> -->
         <div class="col-xs-12 col-m-6 col-lg-auto button">
-          <button type="submit" class="btn btn-primary">What should I do?</button>
+          <button type="submit" class="btn btn-outline-dark"><i class="fas fa-bicycle"></i> <span class="button-text">Should I Cycle?</span></button>
         </div>
       </form>
     </div>
   </div>
-  <div class="content">
+  <div id="content">
     <div class="row">
 
-      <div class="col-xs-12 col-sm-6">
-        <div class="card">
-          <img src="https://via.placeholder.com/500x300" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3>Is it going to rain?</h3>
-            <p class="card-text">Chance of rain is...</p>
-          </div>
+      <div class="card-info">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-info-infos">
+          <h2>Speed</h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="card" >
-          <img src="https://via.placeholder.com/500x300" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3>Is it windy?</h3>
-            <p class="card-text">Chance of rain is...</p>
-          </div>
+
+      <div class="card-info">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-info-infos">
+          <h2>Delays</h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="card" >
-          <img src="https://via.placeholder.com/500x300" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3>Is there real bad pollution?</h3>
-            <p class="card-text">Chance of rain is...</p>
-          </div>
+
+      <div class="card-info">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-info-infos">
+          <h2>Rain</h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="card" >
-          <img src="https://via.placeholder.com/500x300" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3>is the tube screwed?</h3>
-            <p class="card-text">Chance of rain is...</p>
-          </div>
+
+      <div class="card-info">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-info-infos">
+          <h2>Wind</h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="card" >
-          <img src="https://via.placeholder.com/500x300" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3>Which is faster?</h3>
-            <p class="card-text">Chance of rain is...</p>
-          </div>
+
+      <div class="card-info">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-info-infos">
+          <h2>Air Quality</h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
         </div>
       </div>
+
+      <div class="card-info">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-info-infos">
+          <h2>Temperature</h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
+        </div>
+      </div>
+
+       <div class="card-info">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-info-infos">
+          <h2>Visibility</h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
+        </div>
+      </div>
+    </div>
   </div>
 
 <script src="/js/script.js"></script>
