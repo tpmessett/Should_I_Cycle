@@ -30,6 +30,7 @@ const cycleDirections = () => {
     document.getElementById("top-banner").style.backgroundImage = "linear-gradient( rgba(192, 36, 0, 0.9), rgba(192, 36, 0, 0.9) ), url('../img/header.jpg')"
     document.getElementById("no-bike").innerHTML = "Sorry, we couldn't find a route, please try again?";
     document.getElementById("no-bike").style.display = "flex";
+    loader.style.display = "none";
     }
     });
 };
