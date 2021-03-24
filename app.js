@@ -2,7 +2,6 @@
 const express = require('express')
 const fetch = require('node-fetch')
 const app = express()
-const port = 5000
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
@@ -18,7 +17,7 @@ app.set('view engine', 'ejs');
 app.get('', (req, res) => {
     res.render('index')
 })
-app.listen(port, () => console.info(`App listening on port ${port}`))
+app.listen(process.env.PORT || 5000)
 
 
 // Grabs Air quality info from TFL api
