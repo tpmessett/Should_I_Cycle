@@ -236,6 +236,7 @@ const weatherData = async () => {
 // work out if cycling or transit is fater
 const fastest = () => {
   const speed = timeResults[0] - timeResults[1]
+  console.log(speed)
   if (speed < 0) {
     travelScore.push(1)
     document.getElementById("speed-image").src = "../img/bike.jpg"
@@ -246,11 +247,16 @@ const fastest = () => {
     document.getElementById("speed-image").src = "../img/bike.jpg"
     document.getElementById("speed-text").innerHTML = `Both cycling and the tube will take roughly ${timeText[0]}.`
     document.getElementById("speed").style.boxShadow = "0 0 15px rgb(36 197 81 / 40%)"
+  } else if (speed > 0 && speed < 450) {
+    travelScore.push(-1)
+    document.getElementById("speed-image").src = "../img/bike.jpg"
+    document.getElementById("speed-text").innerHTML = `Cycling will take ${timeText[0]}, public transport will take ${timeText[1]}, so Public Transport is a bit faster.`
+    document.getElementById("speed").style.boxShadow = "0 0 15px rgb(192 36 0 / 40%)"
   }
   else {
-    travelScore.push(-1)
+    travelScore.push(-2)
     document.getElementById("speed-image").src = "../img/underground.png"
-    document.getElementById("speed-text").innerHTML = `Cycling will take ${timeText[0]}, public transport will take ${timeText[1]}, so Public Transport is faster.`
+    document.getElementById("speed-text").innerHTML = `Cycling will take ${timeText[0]}, public transport will take ${timeText[1]}, so Public Transport is much faster.`
     document.getElementById("speed").style.boxShadow = "0 0 15px rgb(192 36 0 / 40%)"
   }
   // calls function to work out score of all functions
