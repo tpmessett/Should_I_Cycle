@@ -1,9 +1,13 @@
+.modal-body {
+  height: 500px !important;
+}
+
 .btn:hover .button-text{
   display: none;
 }
 
-.btn {
-  width: 162px;
+#submit {
+  width: 162px ;
   transition-property: background;
   transition-duration: 0.5s !important;
   transition-timing-function: linear !important;
@@ -62,6 +66,8 @@
 
 #top-banner {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../img/header.jpg");
   align-items: center;
   background-position: center;
@@ -70,17 +76,43 @@
   padding: 120px 0;
   height: 100vh;
   background-attachment: fixed;
+
 }
 
-body{
-  margin 0
-  padding 0
+#no-bike {
+  display: none;
+  margin-bottom: 20px;
+
+}
+
+#yes-bike {
+  display: none;
+  margin-bottom: 20px;
+
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+
+  transition: background 0.5s ease;
+}
+
+.btn-flat:hover {
+  background: #343a40;
+  color: white;
 }
 
 .card-info {
   overflow: hidden;
   height: 120px;
-  width: 100%;
+  width: 95%;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -108,8 +140,26 @@ body{
   margin-top: 8px;
 }
 
+.card-info li {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 4px;
+}
+
 .card-info .card-info-infos {
   padding: 16px;
+}
+
+#find-more {
+  margin-top: 20px;
+  display: none;
+}
+
+.card-info-infos {
+  max-height: 100px;
+  overflow: auto;
 }
 
 .line {
@@ -137,38 +187,44 @@ label:focus,
 
 @media screen and (max-width: 992px) {
 
-.header-content {
-  width: 750px;
+  .textbox {
+    margin-bottom: 10px
+  }
+
+  .header-content {
+      width: 100%;
+      max-width: 100%
+      position: relative;
+      border-radius: 0px;
+      opacity: .90;
+  }
+
+  #content {
+    width: 95%;
+  }
+
+  .textbox {
+    margin-bottom: 10px
+  }
+
+  .line {
+      display: none;
+    }
+
+  #submit {
+    width: 100%;
+  }
+
+  #form {
+    width: 100%;
+  }
 }
 
-#content {
-  width: 750px;
-}
-
-.textbox {
-  margin-bottom: 10px
-}
-
-}
-
-@media screen and (max-width: 992px) {
-
-.header-content {
-    max-width: 100%;
-    position: relative;
-    border-radius: 0px;
-    opacity: .90;
-}
-
-#content {
-  width: 95%;
-}
-
-.textbox {
-  margin-bottom: 10px
-}
-
-.line {
-    display: none;
+@media screen and (max-width: 768px) {
+  .header-content {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
