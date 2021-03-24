@@ -1,6 +1,7 @@
 
 const form = document.getElementById('form')
 const seeRoute = document.getElementById('see-route')
+const loader = document.getElementById('loader')
 // stores descriptions of delays taken from TFL API in Delays function
 const serviceDelays = []
 // stores results of time estimate for each route (transit vs cycling)
@@ -11,6 +12,7 @@ const travelScore = []
 let count = 0;
 // Looks up cycle directions using Google JS API
 const cycleDirections = () => {
+  loader.style.display = "block";
   const from = document.getElementById('from');
   const to = document.getElementById('to');
   fetch(`/cycling-directions/${from.value}/${to.value}`)
@@ -269,6 +271,7 @@ const travelSum = () => {
     document.getElementById("top-banner").style.backgroundImage= "linear-gradient( rgba(36, 197, 81, 0.9), rgba(36, 197, 81, 0.9) ), url('../img/header.jpg')"
     document.getElementById("yes-bike").style.display = "flex";
   }
+  loader.style.display = "none";
   document.getElementById("content").style.display = "flex";
   document.getElementById("find-more").style.display = "block";
 }

@@ -1,15 +1,16 @@
 // Imports
 const express = require('express')
 const fetch = require('node-fetch')
-const favicon = require('serve-favicon')
+var favicon = require('serve-favicon')
+var path = require('path')
 const app = express()
+app.use(favicon(path.join(__dirname,'public','img','favicon.ico')));
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
 // Static Files
 app.use(express.static('public'));
-app.use(favicon(__dirname + '/public/img/favicon.ico'));
 // Set View's
 app.set('views', './views');
 app.set('view engine', 'ejs');
