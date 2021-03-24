@@ -1,6 +1,7 @@
 // Imports
 const express = require('express')
 const fetch = require('node-fetch')
+const favicon = require('serve-favicon')
 const app = express()
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -8,7 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Static Files
 app.use(express.static('public'));
-
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
 // Set View's
 app.set('views', './views');
 app.set('view engine', 'ejs');
